@@ -11,7 +11,7 @@
 
     <header>
         <h1>EKSTRA</h1>
-      
+        <p>Hari ini adalah: <?= esc($hariini); ?></p> <!-- Menampilkan hari ini -->
         <nav>
             <ul>
                 <li><a href="/halaman">Beranda</a></li>

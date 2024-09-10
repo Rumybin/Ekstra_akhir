@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="<?= base_url('css/styles.css'); ?>">
 </head>
 <body>
-    <?php var_dump($hari); ?> <!-- Debugging untuk cek apakah $hari tersedia -->
+
 
     <header>
         <h1>EKSTRA</h1>
-        <p>Hari ini adalah: <?= esc($hari); ?></p> <!-- Menampilkan hari -->
+      
         <nav>
             <ul>
                 <li><a href="/halaman">Beranda</a></li>

@@ -7,8 +7,11 @@
     <link rel="stylesheet" href="<?= base_url('css/styles.css'); ?>">
 </head>
 <body>
+    <?php var_dump($hari); ?> <!-- Debugging untuk cek apakah $hari tersedia -->
+
     <header>
         <h1>EKSTRA</h1>
+        <p>Hari ini adalah: <?= esc($hari); ?></p> <!-- Menampilkan hari -->
         <nav>
             <ul>
                 <li><a href="/halaman">Beranda</a></li>
@@ -18,19 +21,6 @@
             </ul>
         </nav>
     </header>
-
-    <section>
-        <h2>Ekstrakurikuler Aktif Hari Ini</h2>
-        <ul id="aktif-ekstra">
-            <?php if (!empty($ekstrakurikuler)): ?>
-                <?php foreach ($ekstrakurikuler as $ekstra): ?>
-                    <li><?= esc($ekstra['Nama_ekstrakurikuler']) ?></li>
-                <?php endforeach; ?>
-            <?php else: ?>
-                <li>Tidak ada ekstrakurikuler aktif hari ini.</li>
-            <?php endif; ?>
-        </ul>
-    </section>
 
     <section>
         <h2>Program Studi</h2>

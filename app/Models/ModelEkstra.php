@@ -8,12 +8,15 @@ class ModelEkstra extends Model
 {
     protected $table = 'db_ekstra';
     protected $primaryKey = 'kode';
-    protected $allowedFields = ['kode', 'Nama_ekstrakurikuler', 'Jadwal_ekstrakurikuler'];
+    protected $allowedFields = ['Nama_ekstrakurikuler', 'Jadwal_ekstrakurikuler'];
 
-    public function getEkstraByDay($hari)
+    public function getEkstraByDay($hariini)
 {
-    // Menggunakan where dengan nama kolom yang benar
-    return $this->where('Jadwal_ekstrakurikuler', $hari)->findAll();
+    // Menggunakan select untuk memilih kolom yang diinginkan
+    return $this->select('Nama_ekstrakurikuler')
+                ->where('Jadwal_ekstrakurikuler', $hariini)
+                ->findAll();
 }
+
 
 }

@@ -2,37 +2,26 @@
 
 namespace App\Controllers;
 
-use App\Models\ModelEkstra;
+use CodeIgniter\Controller;
 
-class EkstraController extends BaseController
+class EkstraController extends Controller
 {
     public function index()
-{
-    // Dapatkan hari saat ini
-    $hari = date('l');
+    {
+        $namaHari = [
+            'Sunday' => 'Minggu',
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu'
+        ];
 
-    // Terjemahkan nama hari ke dalam bahasa Indonesia
-    $hari_mapping = [
-        'Monday' => 'Senin',
-        'Tuesday' => 'Selasa',
-        'Wednesday' => 'Rabu',
-        'Thursday' => 'Kamis',
-        'Friday' => 'Jumat',
-        'Saturday' => 'Sabtu',
-        'Sunday' => 'Minggu'
-    ];
+        $hariInggris = date('l');
+        $hari = $namaHari[$hariInggris];
 
-    $hari_sekarang = $hari_mapping[$hari];
-
-    // Ambil data ekstrakurikuler berdasarkan hari ini
-    $model = new ModelEkstra();
-    $data['ekstrakurikuler'] = $model->getEkstraByDay($hari_sekarang);
-
-    // Debugging output untuk memastikan semuanya benar
-    echo "Hari sekarang: " . $hari_sekarang;
-    var_dump($data['ekstrakurikuler']);
-
-    // Kirim data ke view
-    return view('ekstra_view', $data);
-}
+        // Load view dan kirimkan variabel $hari
+        return view('ekstrakurikuler_view', ['hari' => $hari]);
+    }
 }
